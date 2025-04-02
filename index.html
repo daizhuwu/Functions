@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Usage Converter</title>
+  <link rel="stylesheet" href="asset/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>AI Usage Converter</h1>
+    <div class="stats">
+      <div class="stat">
+        <h2 id="tokenCount">Tokens: 0</h2>
+        <p id="charCount">Characters: 0</p>
+      </div>
+      <div class="stat">
+        <h2 id="energy">Energy: 0.00000 kWh</h2>
+        <p id="equivalent">Equivalent: -</p>
+      </div>
+    </div>
+    <textarea id="prompt" rows="5" placeholder="Type your ChatGPT prompt here..."></textarea>
+    <button onclick="calculateUsage()">Convert</button>
+    <div class="result" id="resultText"></div>
+  </div>
+
+  <script src="asset/converter.js"></script>
+</body>
+</html>
