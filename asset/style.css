@@ -1,65 +1,97 @@
 
 body {
-	font-family: Arial, sans-serif;
-	background: #f4f4f4;
-	margin: 0;
-	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	background: linear-gradient(135deg, #dee4f6, #fefcff);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
   }
   
   .container {
-	max-width: 700px;
-	margin: auto;
-	background: white;
-	padding: 2rem;
-	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	/* background: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+	border-radius: 24px;
+	padding: 2.5rem;
+	width: 1000px;
   }
   
   h1 {
 	text-align: center;
 	margin-bottom: 1rem;
+	font-family: 'Outfit', sans-serif;
+	margin-bottom: 2em;
+  }
+
+  h2 {
+	text-align: left;
+  }
+
+  .stat p {
+	text-align: left;
   }
   
   .stats {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	gap: 1rem;
   }
   
   .stat {
 	flex: 1 1 45%;
-	margin-bottom: 1rem;
+	background: #f6f8ff;
+	border-radius: 12px;
+	padding: 1rem;
+	text-align: center;
+	color: #444;
+	font-weight: 500;
+	background: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
   
   textarea {
 	width: 100%;
-	padding: 1rem;
+	padding: 1.25rem;
 	font-size: 1rem;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	border-radius: 12px;
+	border: 0px solid #ccc;
+	resize: none;
 	box-sizing: border-box;
+	background: #fcfcfc;
+	margin-bottom: 0.8rem;
+	margin-top: 1.5rem;
+	background: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
   
   button {
-	display: block;
-	width: 100%;
-	padding: 0.75rem;
-	font-size: 1rem;
-	background-color: #6763FC;
-	color: white;
+	background: rgba(103, 99, 252, 0.7);
+	backdrop-filter: blur(10px);
 	border: none;
+	border-radius: 12px;
+	padding: 1rem;
+	color: white;
+	font-size: 1.1rem;
 	cursor: pointer;
+	transition: background 0.3s ease;
+	width: 100%;
   }
   
   button:hover {
-	background-color: #a9a6f9;
+	background-color: #837ffd;
   }
   
   .result {
-	margin-top: 1rem;
-	font-weight: bold;
+	margin-top: 1.5rem;
+	font-weight: 600;
 	text-align: center;
+	font-size: 1.1rem;
+	color: #333;
   }
-  
+
   @media (max-width: 600px) {
 	.stat {
 	  flex: 1 1 100%;
