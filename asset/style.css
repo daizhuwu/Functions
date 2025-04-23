@@ -1,100 +1,44 @@
-
 body {
-	font-family: 'Roboto', sans-serif;
-	background: linear-gradient(135deg, #dee4f6, #fefcff);
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  }
-  
-  .container {
-	/* background: rgba(255, 255, 255, 0.45);
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
-	border-radius: 24px;
-	padding: 2.5rem;
-	width: 1000px;
-  }
-  
-  h1 {
-	text-align: center;
-	margin-bottom: 1rem;
-	font-family: 'Outfit', sans-serif;
-	margin-bottom: 2em;
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(to bottom right, #f0f4ff, #f9f7ff);
+	color: #333;
+	padding: 2rem;
+	max-width: 900px;
+	margin: auto;
+	line-height: 1.6;
   }
 
-  h2 {
-	text-align: left;
+h1, h2 {
+	text-align: center;
+	color: #2e3a59;
   }
 
-  .stat p {
-	text-align: left;
+label {
+	font-weight: 600;
+	margin-top: 1rem;
+	display: block;
   }
-  
-  .stats {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: 1rem;
-  }
-  
-  .stat {
-	flex: 1 1 45%;
-	background: #f6f8ff;
-	border-radius: 12px;
-	padding: 1rem;
-	text-align: center;
-	color: #444;
-	font-weight: 500;
-	background: rgba(255, 255, 255, 0.45);
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
-  
-  textarea {
+
+select, input, textarea, button {
+	display: block;
+	margin: 0.5rem 0 1.5rem;
+	padding: 0.75rem 1rem;
 	width: 100%;
-	padding: 1.25rem;
 	font-size: 1rem;
 	border-radius: 12px;
-	border: 0px solid #ccc;
-	resize: none;
-	box-sizing: border-box;
-	background: #fcfcfc;
-	margin-bottom: 0.8rem;
-	margin-top: 1.5rem;
-	background: rgba(255, 255, 255, 0.45);
-	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  }
-  
-  button {
-	background: rgba(103, 99, 252, 0.7);
-	backdrop-filter: blur(10px);
-	border: none;
-	border-radius: 12px;
-	padding: 1rem;
-	color: white;
-	font-size: 1.1rem;
-	cursor: pointer;
-	transition: background 0.3s ease;
-	width: 100%;
-  }
-  
-  button:hover {
-	background-color: #837ffd;
-  }
-  
-  .result {
-	margin-top: 1.5rem;
-	font-weight: 600;
-	text-align: center;
-	font-size: 1.1rem;
+	border: 1px solid #ccc;
+	background-color: #fff;
 	color: #333;
   }
 
-  @media (max-width: 600px) {
-	.stat {
-	  flex: 1 1 100%;
-	}
+button {
+	background-color: #6c63ff;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.3s ease;
   }
   
+button:hover {
+	background-color: #857dff;
+  }
