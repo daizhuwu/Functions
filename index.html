@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>AI Carbon Translator</h1>
-  <div>
+  <div> 
     <div>
       🌍 Net carbon emission: <strong>0.0000 kg CO₂</strong><br>
       🧮 Emitted: 0.0000 - Offset: 0.0000 kg
@@ -24,6 +24,38 @@
     </select>
     <div>♻️ Equivalent: 1 iPhone charge</div>
   </div>
+
+  <section>
+    <h2>Step 1: Select Your AI Usage</h2>
+    <label>Choose Input Method</label>
+    <select>
+      <option>Choose from common tasks</option>
+      <option>Input by usage time (hours)</option>
+      <option>Input a custom prompt</option>
+    </select>
+
+    <div>
+      <label>Choose AI model</label>
+      <select>
+        <option>ChatGPT</option>
+        <option>Image Generation</option>
+        <option>Video AI</option>
+      </select>
+      <div id="taskContainer"></div>
+    </div>
+
+    <div>
+      <label>Time spent on AI (in hours)</label>
+      <input type="number" placeholder="e.g. 1.5">
+    </div>
+
+    <div>
+      <label>Enter your AI prompt</label>
+      <textarea id="promptText" rows="3" placeholder="e.g. Summarize this 1000-word article..."></textarea>
+    </div>
+
+    <button>Calculate Emission</button>
+  </section>
 
   <script src="asset/converter.js"></script>
 </body>
