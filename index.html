@@ -28,18 +28,18 @@
   <section>
     <h2>Step 1: Select Your AI Usage</h2>
     <label>Choose Input Method</label>
-    <select>
-      <option>Choose from common tasks</option>
-      <option>Input by usage time (hours)</option>
-      <option>Input a custom prompt</option>
+    <select id="inputMode" class="input-mode" onchange="updateInputMode()">
+      <option value="common">Choose from common tasks</option>
+      <option value="time">Input by usage time (hours)</option>
+      <option value="prompt">Input a custom prompt</option>
     </select>
 
-    <div>
+    <div id="commonInput">
       <label>Choose AI model</label>
-      <select>
-        <option>ChatGPT</option>
-        <option>Image Generation</option>
-        <option>Video AI</option>
+      <select id="aiModel" onchange="updateTasks()">
+        <option value="chatgpt">ChatGPT</option>
+        <option value="imagegen">Image Generation</option>
+        <option value="videoai">Video AI</option>
       </select>
       <div id="taskContainer" class="task-grid"></div>
     </div>
