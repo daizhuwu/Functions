@@ -9,20 +9,20 @@
 <body>
   <h1>AI Carbon Translator</h1>
   <div class="summary-card" id="emissionResult"> 
-    <div>
+    <div id="carbonSummary">
       🌍 Net carbon emission: <strong>0.0000 kg CO₂</strong><br>
       🧮 Emitted: 0.0000 - Offset: 0.0000 kg
     </div>
-    <label>Choose real-world equivalent:</label>
-    <select>
-      <option>📱 1 iPhone charge</option>
-      <option>💡 Use 60W bulb for 1 hour</option>
-      <option>🚿 1 hot shower</option>
-      <option>🍳 Fry 1 egg</option>
-      <option>🍵 Brew 1 cup of tea</option>
-      <option>🌀 Run fan for 1 hour</option>
+    <label for="equivalentSelector">Choose real-world equivalent:</label>
+    <select id="equivalentSelector" onchange="displayResult()">
+      <option value="phone">📱 1 iPhone charge</option>
+      <option value="bulb">💡 Use 60W bulb for 1 hour</option>
+      <option value="shower">🚿 1 hot shower</option>
+      <option value="eggs">🍳 Fry 1 egg</option>
+      <option value="tea">🍵 Brew 1 cup of tea</option>
+      <option value="fan">🌀 Run fan for 1 hour</option>
     </select>
-    <div>♻️ Equivalent: 1 iPhone charge</div>
+    <div id="equivalentResult">♻️ Equivalent: 1 iPhone charge</div>
   </div>
 
   <section>

@@ -1,23 +1,15 @@
-
-function calculateUsage() {
-	const prompt = document.getElementById('prompt').value;
-	const charCount = prompt.length;
-	const tokenCount = Math.ceil(charCount / 4); // Rough estimate: 1 token ~ 4 characters
-  
-	const energyUsed = (tokenCount * 0.00027).toFixed(5); // Example conversion factor
-	let equivalent = '';
-  
-	if (energyUsed < 0.001) {
-	  equivalent = 'Run one light bulb for 5 minutes 💡';
-	} else if (energyUsed < 0.005) {
-	  equivalent = 'Charge your phone once 🔋';
-	} else {
-	  equivalent = 'Boil a bottle of water 🔥';
+function displayResult() {
+	const selector = document.getElementById("equivalentSelector");
+	const value = selector.value;
+	let result = "";
+	switch (value) {
+	  case "phone": result = "1 iPhone charge"; break;
+	  case "bulb": result = "Use a 60W bulb for 1 hour"; break;
+	  case "shower": result = "Take 1 hot shower"; break;
+	  case "eggs": result = "Fry 1 egg"; break;
+	  case "tea": result = "Brew 1 cup of tea"; break;
+	  case "fan": result = "Run a fan for 1 hour"; break;
 	}
-  
-	document.getElementById('charCount').textContent = `Characters: ${charCount}`;
-	document.getElementById('tokenCount').textContent = `Tokens: ${tokenCount}`;
-	document.getElementById('energy').textContent = `Energy: ${energyUsed} kWh`;
-	document.getElementById('equivalent').textContent = `Equivalent: ${equivalent}`;
+	document.getElementById("equivalentResult").innerText = `♻️ Equivalent: ${result}`;
   }
   
