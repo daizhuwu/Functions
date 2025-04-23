@@ -1,17 +1,17 @@
-function displayResult() {
-	const selector = document.getElementById("equivalentSelector");
-	const value = selector.value;
-	let result = "";
-	switch (value) {
-	  case "phone": result = "1 iPhone charge"; break;
-	  case "bulb": result = "Use a 60W bulb for 1 hour"; break;
-	  case "shower": result = "Take 1 hot shower"; break;
-	  case "eggs": result = "Fry 1 egg"; break;
-	  case "tea": result = "Brew 1 cup of tea"; break;
-	  case "fan": result = "Run a fan for 1 hour"; break;
-	}
-	document.getElementById("equivalentResult").innerText = `♻️ Equivalent: ${result}`;
-  }
+// function displayResult() {
+// 	const selector = document.getElementById("equivalentSelector");
+// 	const value = selector.value;
+// 	let result = "";
+// 	switch (value) {
+// 	  case "phone": result = "1 iPhone charge"; break;
+// 	  case "bulb": result = "Use a 60W bulb for 1 hour"; break;
+// 	  case "shower": result = "Take 1 hot shower"; break;
+// 	  case "eggs": result = "Fry 1 egg"; break;
+// 	  case "tea": result = "Brew 1 cup of tea"; break;
+// 	  case "fan": result = "Run a fan for 1 hour"; break;
+// 	}
+// 	document.getElementById("equivalentResult").innerText = `♻️ Equivalent: ${result}`;
+//   }
   
 const taskData = {
 chatgpt: [
@@ -34,6 +34,14 @@ videoai: [
 ]
 };
 
+let totalEmission = 0;
+let offsetTotal = 0;
+const offsetItems = {
+  tree: { value: 0.01, count: 0 },
+  walk: { value: 0.005, count: 0 },
+  recycle: { value: 0.002, count: 0 }
+};
+
 function updateTasks() {
 const model = document.getElementById("aiModel").value;
 const container = document.getElementById("taskContainer");
@@ -53,6 +61,16 @@ function updateInputMode() {
 	document.getElementById("timeInput").style.display = mode === "time" ? "block" : "none";
 	document.getElementById("promptInput").style.display = mode === "prompt" ? "block" : "none";
   }
+
+  function setEmission(value) {
+	totalEmission = value;
+	offsetTotal = 0;
+	for (const key in offsetItems) {
+	  offsetItems[key].count = 0;
+	  document.getElementById(key + 'Count').innerText = '0';
+	}
+	updateSummary();
+  }
   
   function calculateCarbon() {
 	const mode = document.getElementById("inputMode").value;
@@ -71,11 +89,11 @@ function updateInputMode() {
 	}
   }
 
-const offsetItems = {
-tree: { value: 0.01, count: 0 },
-walk: { value: 0.005, count: 0 },
-recycle: { value: 0.002, count: 0 }
-};
+// const offsetItems = {
+// tree: { value: 0.01, count: 0 },
+// walk: { value: 0.005, count: 0 },
+// recycle: { value: 0.002, count: 0 }
+// };
 
 function adjustOffset(type, delta) {
 const item = offsetItems[type];
@@ -97,6 +115,15 @@ document.getElementById(type + 'Count').innerText = item.count;
 updateSummary();
 }
 
+function resetOffsets() {
+	offsetTotal = 0;
+	for (const key in offsetItems) {
+	  offsetItems[key].count = 0;
+	  document.getElementById(key + 'Count').innerText = '0';
+	}
+	updateSummary();
+  }
+
 function updateSummary() {
 	const remaining = Math.max(0, totalEmission - offsetTotal);
 	document.getElementById("carbonSummary").innerHTML =
@@ -105,22 +132,42 @@ function updateSummary() {
 	displayResult();
 }
 
-function setEmission(value) {
-totalEmission = value;
-offsetTotal = 0;
-for (const key in offsetItems) {
-	offsetItems[key].count = 0;
-	document.getElementById(key + 'Count').innerText = '0';
-}
-updateSummary();
-}
+// function setEmission(value) {
+// totalEmission = value;
+// offsetTotal = 0;
+// for (const key in offsetItems) {
+// 	offsetItems[key].count = 0;
+// 	document.getElementById(key + 'Count').innerText = '0';
+// }
+// updateSummary();
+// }
 
-function setEmission(value) {
-	totalEmission = value;
-	offsetTotal = 0;
-	for (const key in offsetItems) {
-	  offsetItems[key].count = 0;
-	  document.getElementById(key + 'Count').innerText = '0';
+// function setEmission(value) {
+// 	totalEmission = value;
+// 	offsetTotal = 0;
+// 	for (const key in offsetItems) {
+// 	  offsetItems[key].count = 0;
+// 	  document.getElementById(key + 'Count').innerText = '0';
+// 	}
+// 	updateSummary();
+// }
+
+function displayResult() {
+	const selector = document.getElementById("equivalentSelector");
+	const value = selector.value;
+	let result = "";
+	switch (value) {
+	  case "phone": result = "1 iPhone charge"; break;
+	  case "bulb": result = "Use a 60W bulb for 1 hour"; break;
+	  case "shower": result = "Take 1 hot shower"; break;
+	  case "eggs": result = "Fry 1 egg"; break;
+	  case "tea": result = "Brew 1 cup of tea"; break;
+	  case "fan": result = "Run a fan for 1 hour"; break;
 	}
-	updateSummary();
-}
+	document.getElementById("equivalentResult").innerText = `♻️ Equivalent: ${result}`;
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+	updateTasks();
+	updateInputMode();
+  });
