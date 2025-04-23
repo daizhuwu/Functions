@@ -97,4 +97,30 @@ document.getElementById(type + 'Count').innerText = item.count;
 updateSummary();
 }
 
-  
+function updateSummary() {
+	const remaining = Math.max(0, totalEmission - offsetTotal);
+	document.getElementById("carbonSummary").innerHTML =
+	  `🌍 Net carbon emission: <strong>${remaining.toFixed(4)} kg CO₂</strong><br>` +
+	  `🧮 Emitted: ${totalEmission.toFixed(4)} - Offset: ${offsetTotal.toFixed(4)} kg`;
+	displayResult();
+}
+
+function setEmission(value) {
+totalEmission = value;
+offsetTotal = 0;
+for (const key in offsetItems) {
+	offsetItems[key].count = 0;
+	document.getElementById(key + 'Count').innerText = '0';
+}
+updateSummary();
+}
+
+function setEmission(value) {
+	totalEmission = value;
+	offsetTotal = 0;
+	for (const key in offsetItems) {
+	  offsetItems[key].count = 0;
+	  document.getElementById(key + 'Count').innerText = '0';
+	}
+	updateSummary();
+}
