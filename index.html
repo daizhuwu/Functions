@@ -63,24 +63,29 @@
       <div class="task">
         🌳 Plant a tree (-0.01kg)
       </div>
+        <button onclick="adjustOffset('tree', -1)">-</button>
+        <span id="treeCount">0</span>
+        <button onclick="adjustOffset('tree', 1)">+</button>
+      </div>
+    </div>
       <div class="task">
         🚶 Walk 1km (-0.005kg)
         <div>
-          <button >-</button>
-          <span>0</span>
-          <button>+</button>
+          <button onclick="adjustOffset('walk', -1)">-</button>
+          <span id="walkCount">0</span>
+          <button onclick="adjustOffset('walk', 1)">+</button>
         </div>
       </div>
       <div class="task">
         ♻️ Recycle plastic (-0.002kg)
         <div>
-          <button>-</button>
-          <span>0</span>
-          <button>+</button>
+          <button  onclick="adjustOffset('recycle', -1)">-</button>
+          <span id="recycleCount">0</span>
+          <button onclick="adjustOffset('recycle', 1)">+</button>
         </div>
       </div>
     </div>
-    <button>🔄 Reset Offset</button>
+    <button onclick="resetOffsets()">🔄 Reset Offset</button>
   </section>
 
   <script src="asset/converter.js"></script>

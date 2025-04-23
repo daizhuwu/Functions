@@ -70,5 +70,31 @@ function updateInputMode() {
 	  }
 	}
   }
-  
+
+const offsetItems = {
+tree: { value: 0.01, count: 0 },
+walk: { value: 0.005, count: 0 },
+recycle: { value: 0.002, count: 0 }
+};
+
+function adjustOffset(type, delta) {
+const item = offsetItems[type];
+const newCount = item.count + delta;
+if (newCount < 0) return;
+const deltaValue = delta * item.value;
+const remaining = totalEmission - offsetTotal;
+if (delta > 0 && remaining <= 0) {
+	alert("🎉 You've already fully offset your emissions!");
+	return;
+}
+if (delta > 0 && deltaValue > remaining) {
+	alert("🌿 You're trying to offset more than your emissions.");
+	return;
+}
+item.count = newCount;
+offsetTotal += deltaValue;
+document.getElementById(type + 'Count').innerText = item.count;
+updateSummary();
+}
+
   
