@@ -46,4 +46,29 @@ taskData[model].forEach(task => {
 	container.appendChild(div);
 });
 }
+
+function updateInputMode() {
+	const mode = document.getElementById("inputMode").value;
+	document.getElementById("commonInput").style.display = mode === "common" ? "block" : "none";
+	document.getElementById("timeInput").style.display = mode === "time" ? "block" : "none";
+	document.getElementById("promptInput").style.display = mode === "prompt" ? "block" : "none";
+  }
+  
+  function calculateCarbon() {
+	const mode = document.getElementById("inputMode").value;
+	if (mode === "time") {
+	  const hours = parseFloat(document.getElementById("hoursInput").value);
+	  if (!isNaN(hours)) {
+		setEmission(hours * 0.02);
+	  }
+	} else if (mode === "prompt") {
+	  const prompt = document.getElementById("promptText").value.trim();
+	  if (prompt.length > 0) {
+		const tokenCount = Math.ceil(prompt.split(/\s+/).length * 1.5);
+		const estimatedEmission = tokenCount * 0.00002;
+		setEmission(estimatedEmission);
+	  }
+	}
+  }
+  
   

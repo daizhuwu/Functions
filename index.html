@@ -44,17 +44,17 @@
       <div id="taskContainer" class="task-grid"></div>
     </div>
 
-    <div>
+    <div id="timeInput" style="display:none;">
       <label>Time spent on AI (in hours)</label>
       <input type="number" placeholder="e.g. 1.5">
     </div>
 
-    <div>
+    <div id="promptInput" style="display:none;">
       <label>Enter your AI prompt</label>
       <textarea id="promptText" rows="3" placeholder="e.g. Summarize this 1000-word article..."></textarea>
     </div>
 
-    <button>Calculate Emission</button>
+    <button onclick="calculateCarbon()">Calculate Emission</button>
   </section>
 
   <section>
